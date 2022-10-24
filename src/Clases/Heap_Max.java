@@ -35,31 +35,37 @@ public class Heap_Max {
     }
     //Metodo extraer elemento
     public int extraer(){
-        int aux = arr[cant-1];
+        int aux = arr[0];
 
         heapify();
         
         return aux;
     }
     public void heapify(){
-        int aux, indx = 0;
-        if (arr[2*indx+1] > arr[2*indx+2]){
-            if(arr[2*indx+1] > arr[indx]){
-                aux = arr[indx];
-                arr[indx] = arr[2*indx+1];
-                arr[2*indx+1] = aux;
+        int padre = 0;
+        arr[0] = arr[cant-1];
+        int izq = 2 * padre + 1;
+        int der = izq + 1;
+        int aux;
+            
+        while(padre < cant-1){
+            if ((arr[izq] >= arr[der]) && (arr[izq] > arr[padre])){
+                aux = arr[padre];
+                arr[padre] = arr[izq];
+                arr[izq] = aux;
+                padre = izq;                
             }
-        }
-        else {
-            if(arr[2*indx+1] > arr[indx]){
-                aux = arr[indx];
-                arr[indx] = arr[2*indx+2];
-                //arr
-
-                //me quede intercabiando os valores de pade e hijo 
-
+            else if(arr[der] > arr[padre]){
+                aux = arr[padre];
+                arr[padre] = arr[der];
+                arr[der] = aux;
+                padre = der;
             }
+            else 
+                break;
+            
         }
+        cant--;
     }
     public void mostar(){
         System.out.print("[");

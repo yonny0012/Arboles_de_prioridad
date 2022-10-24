@@ -18,6 +18,10 @@ public class App {
         h1.add(10);
         h1.add(8);
         h1.add(14);
+
+        h1.mostar();
+        
+        System.out.println(h1.extraer());
         
         //h1.heapUp(ar.length-1);
         h1.mostar();
