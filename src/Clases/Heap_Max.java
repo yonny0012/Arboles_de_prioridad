@@ -1,5 +1,7 @@
 package Clases;
 
+import javax.lang.model.util.ElementScanner14;
+
 public class Heap_Max {
     private int[] arr;
     private int cant;
@@ -48,25 +50,29 @@ public class Heap_Max {
         int der = izq + 1;
         int aux;
             
-        while(padre < cant-1){
+        while(padre < cant-1 &&  cant > der){
             if ((arr[izq] >= arr[der]) && (arr[izq] > arr[padre])){
                 aux = arr[padre];
                 arr[padre] = arr[izq];
                 arr[izq] = aux;
-                padre = izq;                
+                padre = izq;
+                izq = 2 * padre + 1; 
+                der = 2 * padre + 2;             
             }
             else if(arr[der] > arr[padre]){
                 aux = arr[padre];
                 arr[padre] = arr[der];
                 arr[der] = aux;
                 padre = der;
-            }
+                der = 2 * padre + 2;
+                izq = 2 * padre + 1; 
+            }   
             else 
-                break;
-            
+                break;    
         }
         cant--;
     }
+    
     public void mostar(){
         System.out.print("[");
         for(int i=0; i<cant; i++){
