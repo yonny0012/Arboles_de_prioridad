@@ -14,6 +14,7 @@ public class Heap_Max {
         arr = ar;
         cant = ca;
     }
+    //metodo anhadir elemento
     public void add(int elem){
         arr[cant] = elem;
         heapUp(cant);
@@ -32,8 +33,33 @@ public class Heap_Max {
             heapUp(padre_indx);
         }
     }
-    public void heapify(){
+    //Metodo extraer elemento
+    public int extraer(){
+        int aux = arr[cant-1];
 
+        heapify();
+        
+        return aux;
+    }
+    public void heapify(){
+        int aux, indx = 0;
+        if (arr[2*indx+1] > arr[2*indx+2]){
+            if(arr[2*indx+1] > arr[indx]){
+                aux = arr[indx];
+                arr[indx] = arr[2*indx+1];
+                arr[2*indx+1] = aux;
+            }
+        }
+        else {
+            if(arr[2*indx+1] > arr[indx]){
+                aux = arr[indx];
+                arr[indx] = arr[2*indx+2];
+                //arr
+
+                //me quede intercabiando os valores de pade e hijo 
+
+            }
+        }
     }
     public void mostar(){
         System.out.print("[");

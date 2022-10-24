@@ -7,7 +7,6 @@ public class App {
         //Heap_Max h1 = new Heap_Max(ar,ar.length);
         Heap_Max h1 = new Heap_Max();
         
-        h1.add(20);
         h1.add(7);
         h1.add(6);
         h1.add(4);
@@ -15,6 +14,7 @@ public class App {
         h1.add(9);
         h1.add(5);
         h1.add(12);
+        h1.add(20);
         h1.add(10);
         h1.add(8);
         h1.add(14);
